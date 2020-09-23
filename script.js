@@ -66,10 +66,10 @@ var questions = [{
         
         question: "3. Which element do we need to link a JavaScript file?",
         answers: {
-            a: "<javascript>",
-            b: "<js>",
-            c: "<script>",
-            d: "<css>"
+            a: "javascript",
+            b: "js",
+            c: "script",
+            d: "css"
         },
         correctChoice: "c" 
 
@@ -85,23 +85,182 @@ var questions = [{
     }
     ];
 
-// Display questions
+// Function for question 1 
 
- function changeQuestions() { 
+function question1 (){
+
+    function changeQuestions1() { 
+        
+    var questionString = JSON.stringify (questions[0].question);
+    questionAsked.innerHTML = questionString;
     
-   var questionString = JSON.stringify (questions[0].question);
-   questionAsked.innerHTML = questionString;
+    }
+
+    changeQuestions1(); 
+
+    function changeAnswers1 () {
+    var answerString = JSON.stringify (questions[0].answers.a);
+        answersChoice1.innerHTML = answerString;
+        var answerString = JSON.stringify (questions[0].answers.b);
+        answersChoice2.innerHTML = answerString;
+        var answerString = JSON.stringify (questions[0].answers.c);
+        answersChoice3.innerHTML = answerString;
+        var answerString = JSON.stringify (questions[0].answers.d);
+        answersChoice4.innerHTML = answerString;
+    }
+
+    changeAnswers1(); 
+
+    answersChoice1.addEventListener("click", function (){
+        wrongOrRight.innerHTML = "You've got that right!"
+    })
+
+    function wrongAnswer1 () {
+        var wrongAnswers = [answersChoice2, answersChoice3, answersChoice4]
+        for (let i = 0; i < wrongAnswers.length; i++) {    
+        wrongAnswers[i].addEventListener("click", function () {
+            wrongOrRight.innerHTML = "That is wrong!"
+        })
+    }}
+
+    wrongAnswer1 ();
+}
+
+
+
+// Question 2
+
+function question2 (){
+
+    function changeQuestions2() { 
+       
+      var questionString = JSON.stringify (questions[1].question);
+      questionAsked.innerHTML = questionString;
+      
+   }
    
-}
+   changeQuestions2(); 
+   
+   function changeAnswers2 () {
+      var answerString = JSON.stringify (questions[1].answers.a);
+       answersChoice1.innerHTML = answerString;
+       var answerString = JSON.stringify (questions[1].answers.b);
+       answersChoice2.innerHTML = answerString;
+       var answerString = JSON.stringify (questions[1].answers.c);
+       answersChoice3.innerHTML = answerString;
+       var answerString = JSON.stringify (questions[1].answers.d);
+        answersChoice4.innerHTML = answerString;
+    }
+   
+   changeAnswers2(); 
+   
+   answersChoice3.addEventListener("click", function (){
+       wrongOrRight.innerHTML = "You've got that right!"
+   })
+   
+   function wrongAnswer2 () {
+       var wrongAnswers = [answersChoice1, answersChoice2, answersChoice4]
+       for (let i = 0; i < wrongAnswers.length; i++) {    
+       wrongAnswers[i].addEventListener("click", function () {
+           wrongOrRight.innerHTML = "That is wrong!"
+       })
+   }}
+   
+   wrongAnswer2 ();
+   
+   }
 
-changeQuestions(); 
 
-function changeAnswers () {
-   var answerString = JSON.stringify (questions[0].answers);
-    answersChoice1.innerHTML = answerString;
-    answersChoice2.innerHTML = answerString;
-    answersChoice3.innerHTML = answerString;
-    answersChoice4.innerHTML = answerString;
 
-}
-changeAnswers(); 
+// Question 3 
+   function question3 (){
+
+    function changeQuestions3() { 
+       
+      var questionString = JSON.stringify (questions[2].question);
+      questionAsked.innerHTML = questionString;
+      
+   }
+   
+   changeQuestions3(); 
+   
+   function changeAnswers3 () {
+      var answerString = JSON.stringify (questions[2].answers.a);
+       answersChoice1.innerHTML = answerString;
+       var answerString = JSON.stringify (questions[2].answers.b);
+       answersChoice2.innerHTML = answerString;
+       var answerString = JSON.stringify (questions[2].answers.c);
+       answersChoice3.innerHTML = answerString;
+       var answerString = JSON.stringify (questions[2].answers.d);
+        answersChoice4.innerHTML = answerString;
+    }
+   
+   changeAnswers3(); 
+   
+   answersChoice3.addEventListener("click", function (){
+       wrongOrRight.innerHTML = "You've got that right!"
+   })
+   
+   function wrongAnswer3 () {
+       var wrongAnswers = [answersChoice1, answersChoice2, answersChoice4]
+       for (let i = 0; i < wrongAnswers.length; i++) {    
+       wrongAnswers[i].addEventListener("click", function () {
+           wrongOrRight.innerHTML = "That is wrong!"
+       })
+   }}
+   
+   wrongAnswer3 ();
+   
+   }
+
+// Question 4
+
+function question4 (){
+
+    function changeQuestions4() { 
+       
+      var questionString = JSON.stringify (questions[3].question);
+      questionAsked.innerHTML = questionString;
+      
+   }
+   
+   changeQuestions4(); 
+   
+   function changeAnswers4 () {
+      var answerString = JSON.stringify (questions[3].answers.a);
+       answersChoice1.innerHTML = answerString;
+       var answerString = JSON.stringify (questions[3].answers.b);
+       answersChoice2.innerHTML = answerString;
+       var answerString = JSON.stringify (questions[3].answers.c);
+       answersChoice3.innerHTML = answerString;
+       var answerString = JSON.stringify (questions[3].answers.d);
+        answersChoice4.innerHTML = answerString;
+    }
+   
+   changeAnswers4(); 
+   
+   answersChoice1.addEventListener("click", function (){
+       wrongOrRight.innerHTML = "You've got that right!"
+   })
+   
+   function wrongAnswer4 () {
+       var wrongAnswers = [answersChoice3, answersChoice2, answersChoice4]
+       for (let i = 0; i < wrongAnswers.length; i++) {    
+       wrongAnswers[i].addEventListener("click", function () {
+           wrongOrRight.innerHTML = "That is wrong!"
+       })
+   }}
+   
+   wrongAnswer4 ();
+   
+   }
+
+   question4();
+
+
+
+
+
+   
+
+ 
