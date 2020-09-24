@@ -267,12 +267,21 @@ function question4 (){
    
    }
 
+   // Calling question1 function to start chained functions. 
    question1();
 
    function timeResult() {
        clearInterval(timerInterval);
     setTimeout (questionAsked.textContent = "Your Score Is " + timer.textContent, 100000);
    }
+
+   function finalScore () {
+        var finalScore1 = document.createElement ("input");
+        finalScore1.setAttribute("type","text");
+        finalScore1.setAttribute ("value", "Your Name");
+        document.wrongOrRight.appendChild(questionAsked);
+    }
+
 
 
  
