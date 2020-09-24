@@ -9,30 +9,23 @@ var answersChoice2 = document.getElementById("button-2");
 var answersChoice3 = document.getElementById("button-3");
 var answersChoice4 = document.getElementById("button-4");
 var wrongOrRight = document.getElementById("answer-alert");
+ 
 
 // Timer
 
+var timerInterval
 function setTime() {
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
       timeLeft--;
       timer.innerHTML = timeLeft
-  
-      if(timeLeft === 0) {
-        clearInterval(timerInterval); 
-      };
   
     }, 1000);
 }
 setTime();
 
-// Time expires
 
-function timeOver () {
-    if (setTime === 0)
-    alert("Game Over");
-}
 
-timeOver();
+
 
 
 
@@ -87,6 +80,7 @@ var questions = [{
 
 // Function for question 1 
 
+
 function question1 (){
 
     function changeQuestions1() { 
@@ -113,17 +107,25 @@ function question1 (){
 
     answersChoice1.addEventListener("click", function (){
         wrongOrRight.innerHTML = "You've got that right!"
+        setTimeout (question2, 2000);
     })
 
-    function wrongAnswer1 () {
+
+
+    function wrongAnswer1() {
         var wrongAnswers = [answersChoice2, answersChoice3, answersChoice4]
         for (let i = 0; i < wrongAnswers.length; i++) {    
         wrongAnswers[i].addEventListener("click", function () {
             wrongOrRight.innerHTML = "That is wrong!"
+            timeLeft -= 5;
+            
+            setTimeout (question2, 2000);
+
+          
         })
     }}
 
-    wrongAnswer1 ();
+    wrongAnswer1();
 }
 
 
@@ -156,6 +158,7 @@ function question2 (){
    
    answersChoice3.addEventListener("click", function (){
        wrongOrRight.innerHTML = "You've got that right!"
+       setTimeout (question3, 2000);
    })
    
    function wrongAnswer2 () {
@@ -163,11 +166,14 @@ function question2 (){
        for (let i = 0; i < wrongAnswers.length; i++) {    
        wrongAnswers[i].addEventListener("click", function () {
            wrongOrRight.innerHTML = "That is wrong!"
+           timeLeft -= 5;
+           setTimeout (question3, 2000);
        })
    }}
    
    wrongAnswer2 ();
    
+ 
    }
 
 
@@ -199,6 +205,7 @@ function question2 (){
    
    answersChoice3.addEventListener("click", function (){
        wrongOrRight.innerHTML = "You've got that right!"
+       setTimeout (question4, 2000);
    })
    
    function wrongAnswer3 () {
@@ -206,6 +213,8 @@ function question2 (){
        for (let i = 0; i < wrongAnswers.length; i++) {    
        wrongAnswers[i].addEventListener("click", function () {
            wrongOrRight.innerHTML = "That is wrong!"
+           timeLeft -= 5;
+           setTimeout (question4, 2000);
        })
    }}
    
@@ -241,6 +250,7 @@ function question4 (){
    
    answersChoice1.addEventListener("click", function (){
        wrongOrRight.innerHTML = "You've got that right!"
+       timeResult();
    })
    
    function wrongAnswer4 () {
@@ -248,6 +258,8 @@ function question4 (){
        for (let i = 0; i < wrongAnswers.length; i++) {    
        wrongAnswers[i].addEventListener("click", function () {
            wrongOrRight.innerHTML = "That is wrong!"
+           timeLeft -= 5;
+           timeResult();
        })
    }}
    
@@ -255,9 +267,15 @@ function question4 (){
    
    }
 
-   question4();
+   question1();
+
+   function timeResult() {
+       clearInterval(timerInterval);
+    setTimeout (questionAsked.textContent = "Your Score Is " + timer.textContent, 100000);
+   }
 
 
+ 
 
 
 
