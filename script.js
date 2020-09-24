@@ -9,6 +9,7 @@ var answersChoice2 = document.getElementById("button-2");
 var answersChoice3 = document.getElementById("button-3");
 var answersChoice4 = document.getElementById("button-4");
 var wrongOrRight = document.getElementById("answer-alert");
+var yourScore = document.getElementById("final-score")
  
 
 // Timer
@@ -251,6 +252,7 @@ function question4 (){
    answersChoice1.addEventListener("click", function (){
        wrongOrRight.innerHTML = "You've got that right!"
        timeResult();
+       finalScore();
    })
    
    function wrongAnswer4 () {
@@ -260,6 +262,7 @@ function question4 (){
            wrongOrRight.innerHTML = "That is wrong!"
            timeLeft -= 5;
            timeResult();
+           finalScore();
        })
    }}
    
@@ -275,12 +278,37 @@ function question4 (){
     setTimeout (questionAsked.textContent = "Your Score Is " + timer.textContent, 100000);
    }
 
+   // Function for the end of the game that displays final score and inputs for name and score
+   var submitName
+   var userName = ""
+   var userScore = timer
    function finalScore () {
-        var finalScore1 = document.createElement ("input");
-        finalScore1.setAttribute("type","text");
-        finalScore1.setAttribute ("value", "Your Name");
-        document.wrongOrRight.appendChild(questionAsked);
+        var nameInput = document.createElement ("input");
+        var submitName = document.createElement ("button");
+        submitName.id="submit-name";
+        nameInput.setAttribute("type","text");
+        nameInput.setAttribute ("value", "Your Name");
+        yourScore.appendChild(nameInput);
+        wrongOrRight.remove();
+        submitName.innerHTML = "Submit";
+        yourScore.append(submitName);
+
+// After clicking submit, it brings you to the high score page. 
+    submitName.addEventListener("click", function (){
+        document.location.href="./highscores.html";
+    })
+// Save Score and Name
+    // Save Score and Name
+    localStorage.setItem(userScore);
+    localStorage.setItem(userName);
     }
+
+// Print scores on the High Scores Page 
+var nameFromQuiz = localStorage.setItem(userName);
+var scoreFromQuiz = localStorage.setItem(userScore);
+document.createElement("li", nameFromQuiz);
+document.createElement ("li", scoreFromQuiz)
+
 
 
 
